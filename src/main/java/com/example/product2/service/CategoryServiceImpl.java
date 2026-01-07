@@ -1,6 +1,5 @@
 package com.example.product2.service;
 
-import com.example.product2.dtos.CategoryDto;
 import com.example.product2.model.Category;
 import com.example.product2.repository.CategoryRepository;
 import org.springframework.stereotype.Service;
@@ -17,28 +16,23 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public CategoryDto getCategoryById(Long id) {
+    public Category getCategoryById(Long id) {
         Category category = this.categoryRepository.findById(id).orElseThrow(()-> new RuntimeException("Category not found with id: " + id));
-        return new CategoryDto(category.getName());
+        return category;
     }
 
     @Override
-    public CategoryDto createCategory(CategoryDto category) {
-        Category category1 = new Category(category.getName());
-        this.categoryRepository.save(category1);
-        return new CategoryDto(category1.getName());
+    public Category createCategory(Category category) {
+        this.categoryRepository.save(category);
+        return category;
     }
 
     @Override
-    public CategoryDto updateCategory(Long id, CategoryDto category) {
+    public Category updateCategory(Long id, Category category) {
        Category category1 = this.categoryRepository.findById(id).orElseThrow(()-> new RuntimeException("Category not found with id: " + id));
        category1.setName(category.getName());
        return null;
     }
 
-    @Override
-    public Optional<CategoryDto> findCategoryByName(String name) {
-        Optional<Category> category = this.categoryRepository.findByName(name);
-        return category.map(cat -> new CategoryDto(cat.getName()));
-    }
+
 }
