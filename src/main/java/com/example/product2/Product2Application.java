@@ -24,8 +24,8 @@ public class Product2Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Category category = new Category();
-		category.setName("electronics");
+//		Category category = new Category();
+//		category.setName("electronics");
 //		this.categoryRepository.save(category);
 
 //		Product product = new Product();
@@ -45,12 +45,12 @@ public class Product2Application implements CommandLineRunner {
 //		product2.setPrice(19.99);
 //		this.productRepository.save(product2);
 
-		Product product3 = new Product();
-		product3.setTitle("iphone");
-		product3.setDescription("best iphone ever");
-		product3.setCategory(category);
-		product3.setPrice(199990.0);
-		this.productRepository.save(product3);
+//		Product product3 = new Product();
+//		product3.setTitle("iphone");
+//		product3.setDescription("best iphone ever");
+//		product3.setCategory(category);
+//		product3.setPrice(199990.0);
+//		this.productRepository.save(product3);
 
 
 	}
